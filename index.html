@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="Troosearch">
+
+<head>
+  <meta charset="utf-8">
+  <title>TrooSearch</title>
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/libs/angular.js"></script>
+  <script src="js/modules/Troosearch.js"></script>
+
+  <!-- <script src="js/modules/shubham.js"></script>
+  <script src="js/modules/aashi.js"></script> -->
+  <!-- Modules -->
+
+  <!-- Controllers -->
+  <script src="js/controllers/TrooController.js"></script>
+</head>
+
+<body >
+
+  <div class="main-heading"> TROOSEARCH</div>
+
+    <div class="troosearch-inputs" ng-controller="TrooController">
+
+      <input type="text" ng-keyPress=" ser($event)" name="input" ng-model="searchText" id="input" class="input" placeholder="Search property!!!" value="{{change}}" >
+      <!-- <input type="text" name="input" id="input-suggestion" class="input-suggestion" placeholder=""> -->
+      <div ng-if="check" class="suggestion-box" id="suggestion-box">
+        <div  ng-repeat="pro in property| filter:searchText" ng-class=" {'single-sugg' : check}" >
+          <!-- id="single-suggestion" -->
+          <div ng-click = " cli($event)">
+            {{pro.name}}
+          </div>
+        </div>
+        <!-- <div class="load" id="Loading-suggestion" style="display:block;">Loading...</div> -->
+      </div>
+    </div>
+
+
+  <!-- <script src="js/ui.js"></script> -->
+  <!-- <script src="js/events.js"></script> -->
+
+  <!-- <script src="js/plugin.js"></script> -->
+</body>
+
+</html>
